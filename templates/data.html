@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Box Search</title>
+	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<nav style="height: 90px">
+			<div class="nav-wrapper hoverable blue lighten-1 z-depth-2" style="padding: 10px 0px 10px 10px">
+				<a href="/" class="brand-logo hoverable z-depth-1 blue lighten-2 waves-effect" style="border-radius: 5px;padding: 0px 15px 0px 15px"><strong><font color="#eceff1"></font>BOX SEARCH</strong></a>
+				<ul id="nav-mobile" class="right hide-on-med-and-down">
+					<!-- <li><a href="#">about</a></li>
+					<li><a href="#">contact</a></li> -->
+				</ul> 
+			</div>
+		</nav>
+</head>
+<body class = "grey darken-1">
+</br>
+
+</br>
+
+<div class="container z-depth-2 hoverable lime lighten-5" style="border-radius: 15px;">
+
+
+ <div class="card" style="border-radius: 15px 15px 0px 0px;">
+	<div class="card-image waves-effect waves-block waves-light" style="height: 200px;border-radius: 15px 15px 0px 0px;">
+		<img class="activator" src="{{img_src}}">
+	</div>
+	<div class="card-content blue">
+		<span class="card-title activator white-text"><strong>{{season_name.replace("%20", " ").title() }}</strong><i class="material-icons right">keyboard_arrow_up</i></span>
+	</div>
+	<div class="card-reveal blue lighten-1">
+		<span class="card-title white-text">
+			<h4><strong>{{season_name.replace("%20", " ").title() }}</strong><i class="material-icons right">keyboard_arrow_down</i></h4>
+		</span>
+		<hr>
+		<h6 class="white-text" style=" text-align: justify;text-justify: inter-word;"><strong>{{discp}}</strong></h6>
+	</div>
+</div>
+
+{% for i,j in link%}
+<div class="row" style="padding-left: 50px">
+	<h4 class="col s7"><strong><font color="#29b6f6">{{season_name.replace("%20", " ").title() }} S{{season_number}} E{{episode_number}}
+
+	</font></strong> </h4>
+	{% if '1080' in i%}
+		<a class="col s2 " style="padding-top: 25px" href="{{i}}">
+			<button style="border-radius: 5px;" 
+			onclick="M.toast({html: 'Downloading...',classes: 'rounded'})" 
+			class="waves-effect pulse light-blue waves-teal btn white-text tooltipped" data-position="left" data-tooltip="{{j}}">
+				<strong>{{'1080p'}}
+				<i class="material-icons right">hd</i></strong>
+			</button>
+				
+		</a>
+	{%elif '720' in i%}
+		<a class="col s2" style="padding-top: 25px" href="{{i}}">
+			<button style="border-radius: 5px;" 
+			onclick="M.toast({html: 'Downloading...',classes: 'rounded'})" 
+			class="waves-effect light-blue darken-1 waves-teal btn white-text tooltipped"data-position="left" data-tooltip="{{j}}" >
+					<strong>{{'720p'}}</strong>
+					<i class="material-icons right">high_quality</i>
+			</button>
+			
+		</a>
+	{%elif '480p' in i%}
+		<a class="col s2 " style="padding-top: 25px" href="{{i}}">
+			<button style="border-radius: 5px;"
+			onclick="M.toast({html: 'Downloading...',classes: 'rounded'})" 
+			class="waves-effect waves-teal white btn col s10 tooltipped" 
+			data-position="left" data-tooltip="{{j}}">
+				<font color="Black">
+					<strong>{{'480p'}}</strong>
+					</font>
+			</button>
+			
+		</a>
+	{%else%}
+		<a class="col s2" style="padding-top: 25px" href="{{i}}">
+			<button onclick="M.toast({html: 'Downloading...',classes: 'rounded'})" class="waves-effect waves-teal white btn tooltipped" data-position="left" data-tooltip="{{j}}">
+				<font color="Black">
+					<strong>{{'Unknown'}}</strong>
+				</font>
+			</button>
+			
+		</a>
+	{%endif%}
+	<a class="col s1" style="padding-top: 25px;padding-left: 25px" href="/vid">
+		<button style="border-radius: 5px;" class="waves-effect waves-teal btn green lighten-2">
+			<i class="material-icons left" style="color: white;padding-left: 15px">tv</i>
+		</button>
+	</a>
+</div>
+{%endfor%}
+</br>
+</div>
+</br>
+<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+<script>
+	
+	 $(document).ready(function(){
+    $('.tooltipped').tooltip();
+  });
+        
+</script>
+</body>
+</html>

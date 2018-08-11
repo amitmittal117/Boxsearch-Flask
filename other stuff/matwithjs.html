@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+		<title>Materialize Sandbox</title>
+	</head>
+	<!-- <div class="container">
+		<h1>CAROUSEL</h1>
+		<div class="carousel">
+			<a href="#one!" class="carousel-item">
+				<img src="https://dummyimage.com/250x250/green/red.jpg" alt="">
+			</a>
+			<a href="#two!" class="carousel-item">
+				<img src="https://dummyimage.com/250x250/red/blue.jpg" alt="">
+			</a>
+			<a href="#three!" class="carousel-item">
+				<img src="https://dummyimage.com/250x250/yellow/black.jpg" alt="">
+			</a>
+			<a href="#four!" class="carousel-item">
+				<img src="https://dummyimage.com/250x250/orange/yellow.jpg" alt="">
+			</a>
+			<a href="#five!" class="carousel-item">
+				<img src="https://dummyimage.com/250x250/black/orange.jpg" alt="">
+			</a>
+		</div>
+	<div class="container">
+		<h1>CAROUSEL</h1>
+		<div class="carousel carousel-slider">
+			<a href="#one!" class="carousel-item">
+				<img src="https://dummyimage.com/800x400/green/red.jpg" alt="">
+			</a>
+			<a href="#two!" class="carousel-item">
+				<img src="https://dummyimage.com/800x400/red/blue.jpg" alt="">
+			</a>
+			<a href="#three!" class="carousel-item">
+				<img src="https://dummyimage.com/800x400/yellow/black.jpg" alt="">
+			</a>
+			<a href="#four!" class="carousel-item">
+				<img src="https://dummyimage.com/800x400/orange/yellow.jpg" alt="">
+			</a>
+			<a href="#five!" class="carousel-item">
+				<img src="https://dummyimage.com/800x400/black/orange.jpg" alt="">
+			</a>
+		</div> -->
+		<br>
+		<br>
+		<br>
+		<br>
+
+	<a href="#modal1" class="btn wave-effect">Modal 1</a>
+	<a href="#modal2" class="btn wave-effect red">Modal 2</a>
+
+	<div id="modal1" class = "modal">
+		<div class="modal-content"> 
+			<h4>Modal Header</h4>
+			<p>a bunch of text</p>
+		</div>
+	</div>
+
+
+	<div class="container">
+		<a onclick="M.toast({html: 'I am a toast', classes: 'rounded'})" class="btn">Toast!</a>
+	<body>
+
+
+
+
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			$('.carousel').carousel();
+		});
+		$(document).ready(function(){
+			$('.carousel.carousel-slider').carousel({fullWidth:true});
+		});
+		 $(document).ready(function(){
+    $('.tooltipped').tooltip();
+  });
+        
+		$(document).ready(function(){
+    $('.modal').modal();
+  });
+	</script>
+	</body>
+</html>

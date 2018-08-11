@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+	<html>
+		<head>
+			<!--Import Google Icon Font-->
+			<link href="http://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+			<!--Import materialize.css-->
+			 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/css/materialize.min.css">
+		</head>
+		<body>
+			<div class="container">
+
+					<div class="fixed-action-btn" style="bottom:25px;right:25px">
+					<a  href="#modal1" id="menu" class="waves-effect waves-light btn btn-floating btn-large cyan">
+						<i class="material-icons">menu</i>
+					</a>
+				</div>
+				
+				<div id="modal1" class="modal">
+					<div class="modal-content col s12">
+					<div class="col s10 red">hello</div>
+						<h4><strong>The Developers!!!!</strong></h4>
+						<a class="modal-action modal-close waves-effect waves-green"><i class="material-icons left">close</i></a>
+					</div>	
+				</div>
+			
+
+
+
+			</div>
+			<!-- ./container -->
+
+			<div style="height:500px"></div>
+
+			<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+			<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+			<script>
+				$(document).ready(function(){
+					$('.modal').modal();
+				});
+			</script>
+		</body>
+	</html>
