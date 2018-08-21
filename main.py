@@ -1,9 +1,10 @@
-from flask import Flask,render_template,request,make_response
+from flask import Flask,render_template,request,make_response,jsonify
 import mysql.connector
-import urllib.request 
-from discription import descriptions , image_request
+import urllib.request
+from discription import descriptions , image_request, rating_request
 import urllib.parse, json
 mydb = mysql.connector.connect(host="localhost",user="root",passwd="",database="show")
+# mydb = mysql.connector.connect(host="192.168.1.9",user="pmauser",passwd="amitpi",database="show")
 mycursor = mydb.cursor()
 
 
@@ -13,11 +14,10 @@ def index ():
 	sql = "SELECT `season_name` FROM `season_name`"
 	mycursor.execute(sql)
 	auto= mycursor.fetchall()
-	autodict = {}
+	data = {}
 	for i in auto:
-		autodict[i[0]] = 'null'
-
-	return render_template('index.html' ,autodict = autodict)
+		data[i[0]] = 'null'
+	return render_template('index.html' ,data = jsonify(data))
 
 @app.route('/data', methods = ['POST','GET'])
 def data():
@@ -32,14 +32,14 @@ def data():
 		if len(season_number) == 1:
 			season_number = "0"+season_number
 
-		episode_number = request.form['episode_number']	
+		episode_number = request.form['episode_number']
 		if episode_number[0] == 'E' or episode_number[0] == 'e':
 			episode_number = episode_number[1:]
 		if len(episode_number) == 1:
 			episode_number = "0"+episode_number
 		# sql = "SELECT link FROM demo_mark_3 WHERE season_name = '"+season_name+"' AND season_number = '"+ season_number +"' AND episode_number = '"+ episode_number +"'"
 		# sql = "SELECT link FROM demo_mark_3 WHERE link LIKE '%"+season_name+"%' AND link LIKE '%"+season_number+"%' AND link LIKE '%"+episode_number+"%'"
-		sql = "SELECT link,size FROM "+first_letter+" WHERE link LIKE '%"+season_name+"%'"
+		sql = "SELECT link,size FROM `"+first_letter+"` WHERE link LIKE '%"+season_name+"%'"
 		mycursor.execute(sql)
 		a = mycursor.fetchall()
 		temp = []
@@ -55,7 +55,7 @@ def data():
 						size = str(round(float(size),2)) + " MB"
 					templist.append(size)
 					temp.append(templist)
-					new_sql = "SELECT `description`, `image_link` FROM `description` WHERE `season_name` LIKE '"+season_name+"';"
+					new_sql = "SELECT `description`, `image_link`, `rating` FROM `description` WHERE `season_name` LIKE '"+season_name+"';"
 					mycursor.execute(new_sql)
 					d = mycursor.fetchall()
 					autocomplete = "SELECT `season_name` FROM `season_name` WHERE `season_name` LIKE '%"+season_name_for_discp+"%'"
@@ -66,20 +66,34 @@ def data():
 						mycursor.execute(autocomplete1)
 						mydb.commit()
 					if len(d) == 0:
-						discp = descriptions(season_name_for_discp) 
+						discp = descriptions(season_name_for_discp)
 						img_src = image_request(season_name_for_discp)
-						sql = "INSERT INTO `description`(`season_name`, `description`, `image_link`) VALUES ('"+season_name+"','"+discp+"','"+img_src+"');"
-
+						rating_of_show = rating_request(season_name_for_discp)
+						sql = "INSERT INTO `description`(`season_name`, `description`, `image_link`, `rating`) VALUES ('"+season_name+"','"+discp+"','"+img_src+"','"+rating_of_show+"');"
 						mycursor.execute(sql)
 						mydb.commit()
 					else:
 						discp = d[0][0]
 						# print(d)
 						img_src= d[0][1]
+						rating_of_show = d[0][2]
 						discp = str(discp).replace("\n","").replace("(' ","").replace("',)","")
+
 		if len(temp) != 0:
-			return render_template('data.html', link = temp,discp = discp,img_src = img_src, season_name=season_name,season_number=season_number,episode_number=episode_number)
-	
+			return render_template('data.html',rating_of_show = rating_of_show , link = temp, discp = discp, img_src = img_src, season_name=season_name,season_number=season_number,episode_number=episode_number)
+		else:
+			season_name = season_name.replace('%20','_')
+			print(season_name)
+			print(season_number)
+			print(episode_number)
+			sql = "SELECT link,size FROM `"+first_letter+"` WHERE link LIKE '%"+season_name+"%'"
+			mycursor.execute(sql)
+			a = mycursor.fetchall()
+			print(a)
+
+
+
+
 	return render_template('index.html')
 
 @app.route('/vid', methods = ['POST','GET'])
@@ -87,6 +101,27 @@ def vid():
 	print(temp)
 	return render_template('vid.html' )
 
+@app.route('/find', methods = ['POST','GET'])
+
+def find():
+
+		return render_template('find.html')
+
+
+@app.route('/searched', methods = ['POST','GET'])
+def searched():
+		series_name = request.form['series_name']
+		print(series_name[0])
+
+		sql = 'SELECT `link` FROM `'+series_name[0]+'` WHERE `link` LIKE "%'+series_name+'%"'
+		mycursor.execute(sql)
+		search = mycursor.fetchall()
+
+		for li in search:
+			lin = li[0]
+
+		return render_template('searched.html',series_name = series_name, search = search )
+
 
 if __name__ == "__main__":
-	app.run(debug=True)
+	app.run(host= '0.0.0.0',debug=True)

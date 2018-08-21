@@ -9,7 +9,8 @@ import time
 REMOTE_SERVER = "www.google.com"
 
 #---------------Url to Use----------------
-any_url = "http://dl4.lavinmovie.net/series/"
+# any_url = "http://dl.upload8.net/Serial/Gotham/"
+any_url = "http://dl.sitemovie.ir/serial/TEEN%20WOLF/s1/"
 # any_url = "http://dl.upload8.net/Serial/Agents.of.S.H.I.E.L.D/"
 # any_url = "http://fromv.ir/vip/Series/Ongoing/Arrow/"
 #------------Database in Action------------

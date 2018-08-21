@@ -6,6 +6,8 @@
 		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link rel="icon"href = 'static/space.png'>
+		
 	<nav style="height: 90px">
 			<div class="nav-wrapper hoverable blue lighten-1 z-depth-2" style="padding: 10px 0px 10px 10px">
 				<a href="/" class="brand-logo hoverable z-depth-1 blue lighten-2 waves-effect" style="border-radius: 5px;padding: 0px 15px 0px 15px"><strong><font color="#eceff1"></font>BOX SEARCH</strong></a>
@@ -16,20 +18,26 @@
 			</div>
 		</nav>
 </head>
-<body class = "grey darken-1">
+<body class = "blue lighten-5">
 </br>
 
 </br>
 
-<div class="container z-depth-2 hoverable lime lighten-5" style="border-radius: 15px;">
+<div class="container z-depth-2 hoverable grey lighten-5" style="border-radius: 15px;">
 
 
  <div class="card" style="border-radius: 15px 15px 0px 0px;">
-	<div class="card-image waves-effect waves-block waves-light" style="height: 200px;border-radius: 15px 15px 0px 0px;">
+	<div class="card-image waves-effect waves-block waves-light" style="height: 150px;border-radius: 15px 15px 0px 0px;">
 		<img class="activator" src="{{img_src}}">
 	</div>
 	<div class="card-content blue">
-		<span class="card-title activator white-text"><strong>{{season_name.replace("%20", " ").title() }}</strong><i class="material-icons right">keyboard_arrow_up</i></span>
+		<span class="card-title activator white-text" >
+			<strong
+			class="tooltipped" data-position="left" data-tooltip="{{rating_of_show}} &#9733;">
+				{{season_name.replace("%20", " ").title() }}
+			</strong>
+			<i class="material-icons right">keyboard_arrow_up</i>
+		</span>
 	</div>
 	<div class="card-reveal blue lighten-1">
 		<span class="card-title white-text">
@@ -103,6 +111,7 @@
 	
 	 $(document).ready(function(){
     $('.tooltipped').tooltip();
+
   });
         
 </script>

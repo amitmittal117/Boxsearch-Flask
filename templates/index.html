@@ -8,9 +8,11 @@
 		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
 		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
 		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+		<link rel="icon"href = 'static/space.png'>
+
 		<nav style="height: 90px">
 			<div class="nav-wrapper blue lighten-1 hoverable z-depth-2" style="padding: 10px 0px 10px 10px">
-				<a href="/" class="brand-logo hoverable z-depth-1 blue lighten-2 waves-effect" style="border-radius: 5px;padding: 0px 15px 0px 15px"><strong><font color="#eceff1"></font>BOX SEARCH</strong></a>
+				<a href="/" class="brand-logo hoverable z-depth-1 blue lighten-2 waves-effect" style="border-radius: 5px;padding: 0px 15px 0px 15px"><strong><font color="#eceff1"></font>BOX SEARCH<sup style="font-size: 20px;font-weight:bold"><font color="#e3f2fd"> LITE</font></sup></strong></a>
 				<ul id="nav-mobile" class="right hide-on-med-and-down">
 					<!-- <li><a href="#">about</a></li>
 					<li><a href="#">contact</a></li> -->
@@ -19,14 +21,13 @@
 		</nav>
 	</head>
 
-	<body class = "grey">
-	</br></br></br></br>
-	<div class="container hoverable z-depth-5 lime lighten-5" style="border-radius: 15px;padding: 50px 50px 50px 50px;" >
-		<h5>{{autodict}}</h5>
+	<body class = "blue lighten-5">
+	</br></br>
+	<div class="container hoverable z-depth-5 grey lighten-5" style="border-radius: 15px;padding: 50px 50px 50px 50px;" >
 		<form method="POST"  action="/data">
 			<div class="input-field col s4">
 				<i class="material-icons prefix" style="opacity: 0.7">add_to_queue</i>
-				<input type="text" autocomplete="off" id="autocomplete-input" class="autocomplete"
+				<input type="text" id="autocomplete-input" class="autocomplete"
 				  placeholder="Season Name" required="true"  name="season_name">
 			</div>
 			<div class="input-field col s4">
@@ -38,14 +39,14 @@
 				<input class="validate" required="true" id="episode_name" type="text" placeholder="Episode Number" name="episode_number">
 			</div>
 			<div class="row">
-			<div class="input-field col s3" style="padding-left: 45px">
-				<button onclick="myFunction()" style="border-radius: 30px;" class="waves-effect btn-large z-depth-3 light-blue white-text" type="submit" name="submit" value="submit"><strong>Search<i class="material-icons right">search</i></strong></button>
+				<div class="input-field col s3" style="padding-left: 45px">
+					<button onclick="myFunction()" style="border-radius: 30px;" class="waves-effect btn-large z-depth-3 light-blue white-text" type="submit" name="submit" value="submit"><strong>Search<i class="material-icons right">search</i></strong></button>
+				</div>
+				<div class="col s7 offset-s1" style="top: 50px">
+					<br>
+					<div id="demo"></div>
+				</div>
 			</div>
-			<div class="col s7 offset-s1" style="top: 50px">
-				<br>
-				<div id="demo"></div>
-			</div>
-		</div>
 		</form>
 		<div class="fixed-action-btn" onclick="chBackcolor('red');" style="bottom:25px;right:25px">
 			<a  href="#modal1" id="menu" class="waves-effect waves-light btn btn-floating btn-large cyan z-depth-5">
@@ -60,37 +61,47 @@
 					<div class="col s5 offset-s1">
 						<div class="card horizontal hoverable z-depth-4 light-blue lighten-5" style="border-radius: 15px">
 							<div class="card-image" >
-								<img src="static/amit1.jpg" height="190px" style="border-radius: 5% 0% 0% 5%">
+								<img src="static/amit1.jpg" height="170px" style="border-radius: 5% 0% 0% 5%">
 							</div>
 							<div class="card-stacked">
 								<div class="card-content">
-									<h5><strong>AMIT MITTAL</strong></h5>
-									<h6><strong>+918989509860</strong></h6>
+									<h6><strong>AMIT MITTAL</strong></h6>
+									<h7><strong>+918989509860</strong></h7>
 									<hr>
-									<div style="height: 20px;"></div>
-									<i class="fa fa-instagram fa-2x" aria-hidden="true"></i>&nbsp;&nbsp;
-									<i class="fa fa-linkedin fa-2x" aria-hidden="true"></i>&nbsp;&nbsp;
-									<i class="fa fa-facebook-official fa-2x" aria-hidden="true"></i>&nbsp;&nbsp;
-									<i class="fa fa-google fa-2x" aria-hidden="true"></i>&nbsp;&nbsp;
+									<div style="height: 10px;"></div>
+									&nbsp;&nbsp;
+									<a href="https://www.instagram.com/amitmittal2/"><i class="fa fa-instagram fa-2x" aria-hidden="true"></i></a>&nbsp;&nbsp;
+									<a href="https://www.linkedin.com/in/amitrmittal/">
+									<i class="fa fa-linkedin fa-2x" aria-hidden="true"></i></a>&nbsp;&nbsp;
+									<a href="https://www.facebook.com/amit.mittal.58511">
+									<i class="fa fa-facebook-official fa-2x" aria-hidden="true"></i></a>&nbsp;&nbsp;
+									<a href="https://plus.google.com/+AMITMITTAL1995">
+									<i class="fa fa-google fa-2x" aria-hidden="true"></i></a>&nbsp;&nbsp;
+
 								</div>
 							</div>
 						</div>
 					</div>
 					<div class="col s5">
-						<div class="card horizontal hoverable z-depth-4 light-blue lighten-5" style="border-radius: 15px">
+						<div class="card horizontal hoverable z-depth-4 light-blue lighten-5" style="border-radius: 10px">
 							<div class="card-image">
-								<img src="static/aayush.jpg" height="190px" style="border-radius: 5% 0% 0% 5%">
+								<img src="static/aayush.jpg" height="170px" style="border-radius: 5% 0% 0% 5%">
 							</div>
 							<div class="card-stacked">
 								<div class="card-content">
-									<h5><strong>Aayush Gupta</strong></h5>
-									<h6><strong>+91898989509860</strong></h6>
+									<h6><strong>Aayush Gupta</strong></h6>
+									<h7><strong>+918989899833</strong></h7>
 									<hr>
-									<div style="height: 20px;"></div>
-									<i class="fa fa-instagram fa-2x" aria-hidden="true"></i>&nbsp;&nbsp;
-									<i class="fa fa-linkedin fa-2x" aria-hidden="true"></i>&nbsp;&nbsp;
-									<i class="fa fa-facebook-official fa-2x" aria-hidden="true"></i>&nbsp;&nbsp;
-									<i class="fa fa-google fa-2x" aria-hidden="true"></i>&nbsp;&nbsp;
+									<div style="height: 15px;"></div>
+									&nbsp;&nbsp;
+									<a href="https://www.instagram.com/aayush.gupta89/"><i class="fa fa-instagram fa-2x" aria-hidden="true"></i></a>&nbsp;&nbsp;
+									</a>
+									<a href="https://www.linkedin.com/in/aayush-gupta-0b7585128/">
+									<i class="fa fa-linkedin fa-2x" aria-hidden="true"></i></a>&nbsp;&nbsp;
+									<a href="https://www.facebook.com/aayush209">
+									<i class="fa fa-facebook-official fa-2x" aria-hidden="true"></i></a>&nbsp;&nbsp;
+									<a href="https://plus.google.com/102312544441875760988">
+									<i class="fa fa-google fa-2x" aria-hidden="true"></i></a>&nbsp;&nbsp;
 								</div>
 							</div>
 						</div>
@@ -98,31 +109,44 @@
 					<div class="col s1">
 						<a class="btn-floating modal-close white btn-medium z-depth-3 " style="top:150px; left:50px"><i class="material-icons black-text">clear</i></a>
 					</div>
-				</div>
-				
-			</div>
-			
-  </div>
+				</div>	
+			</div>	
 		</div>
-		<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
-		<script>
-			$(document).ready(function(){
-				$('input.autocomplete').autocomplete({
-					data:{
-						"Apple": '',
-						"Microsoft": null,
-						"Microsoft": null,
-						"Google": 'https://placehold.it/250x250'
-	  				},
-				});
-
-				$('.modal').modal();
-  			});
+	</div>
+	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+	<script>
+		$(document).ready(function(){
+			$.ajax({
+				url: '/',
+				type: 'get',
+				success: function(data){
+				  $('input.autocomplete').autocomplete({
+					data: data
+				  });
+					console.log(data);
+				},
+				error: function (xhr, ajaxOptions, thrownError) {
+					var errorMsg = 'Ajax request failed: ' + xhr.responseText;
+					$('#content').html(errorMsg);
+				  }
+			});
 			
-			function myFunction() {
-					document.getElementById("demo").innerHTML = '<div class="progress"><div class="indeterminate"></div></div>';
-			}
-		</script>
+			$('input.autocomplete').autocomplete({
+				data:{
+					"Apple": '',
+					"Microsoft": null,
+					"Microsoft": null,
+					"Google": 'https://placehold.it/250x250'
+				},
+			});
+
+			$('.modal').modal();
+		});
+			
+		function myFunction() {
+			document.getElementById("demo").innerHTML = '<div class="progress"><div class="indeterminate"></div></div>';
+		}
+	</script>
 	</body>
 </html>
