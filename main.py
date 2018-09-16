@@ -1,8 +1,9 @@
 from flask import Flask,render_template,request,make_response,jsonify
 import mysql.connector
 import urllib.request
-from discription import descriptions , image_request, rating_request
+from discription import descriptions , image_request, rating_request, image_request_back_banner
 import urllib.parse, json
+import random
 mydb = mysql.connector.connect(host="localhost",user="root",passwd="",database="show")
 # mydb = mysql.connector.connect(host="192.168.1.9",user="pmauser",passwd="amitpi",database="show")
 mycursor = mydb.cursor()
@@ -11,13 +12,15 @@ mycursor = mydb.cursor()
 app = Flask(__name__)
 @app.route('/')
 def index ():
-	sql = "SELECT `season_name` FROM `season_name`"
+	sql = "SELECT `background img` FROM `description`"
 	mycursor.execute(sql)
 	auto= mycursor.fetchall()
-	data = {}
-	for i in auto:
-		data[i[0]] = 'null'
-	return render_template('index.html' ,data = jsonify(data))
+	front_image = []
+	for pic in auto:
+		for each_pic in pic[0].split(','):
+			front_image.append(each_pic)
+	image = front_image[random.randint(0,len(front_image))]
+	return render_template('index.html',image = image)
 
 @app.route('/data', methods = ['POST','GET'])
 def data():
@@ -26,6 +29,8 @@ def data():
 		season_name_for_discp = season_name
 		season_name = season_name.replace(' ', '%20')
 		first_letter = season_name[0]
+		image_request_back = ""
+		image_back = ""
 		season_number = request.form['season_number']
 		if season_number[0] == 'S' or season_number[0] == 's':
 			season_number = season_number[1:]
@@ -55,7 +60,7 @@ def data():
 						size = str(round(float(size),2)) + " MB"
 					templist.append(size)
 					temp.append(templist)
-					new_sql = "SELECT `description`, `image_link`, `rating` FROM `description` WHERE `season_name` LIKE '"+season_name+"';"
+					new_sql = "SELECT `description`, `image_link`, `rating`,`background img` FROM `description` WHERE `season_name` LIKE '"+season_name+"';"
 					mycursor.execute(new_sql)
 					d = mycursor.fetchall()
 					autocomplete = "SELECT `season_name` FROM `season_name` WHERE `season_name` LIKE '%"+season_name_for_discp+"%'"
@@ -69,7 +74,8 @@ def data():
 						discp = descriptions(season_name_for_discp)
 						img_src = image_request(season_name_for_discp)
 						rating_of_show = rating_request(season_name_for_discp)
-						sql = "INSERT INTO `description`(`season_name`, `description`, `image_link`, `rating`) VALUES ('"+season_name+"','"+discp+"','"+img_src+"','"+rating_of_show+"');"
+						image_request_back = image_request_back_banner(season_name_for_discp)
+						sql = "INSERT INTO `description`(`season_name`, `description`, `image_link`, `rating`,`background img`) VALUES ('"+season_name+"','"+discp+"','"+img_src+"','"+rating_of_show+"','"+image_request_back+"');"
 						mycursor.execute(sql)
 						mydb.commit()
 					else:
@@ -77,10 +83,16 @@ def data():
 						# print(d)
 						img_src= d[0][1]
 						rating_of_show = d[0][2]
+						image_back = d[0][3]
 						discp = str(discp).replace("\n","").replace("(' ","").replace("',)","")
 
 		if len(temp) != 0:
-			return render_template('data.html',rating_of_show = rating_of_show , link = temp, discp = discp, img_src = img_src, season_name=season_name,season_number=season_number,episode_number=episode_number)
+			print("good")
+			li = img_src.split(',')
+			img_src = li[random.randint(0,9)]
+			nli = image_back.split(',')
+			image_back = nli[random.randint(0,9)]
+			return render_template('data.html',rating_of_show = rating_of_show ,image_back = image_back, link = temp, discp = discp, img_src = img_src, season_name=season_name,season_number=season_number,episode_number=episode_number)
 		else:
 			season_name = season_name.replace('%20','_')
 			print(season_name)

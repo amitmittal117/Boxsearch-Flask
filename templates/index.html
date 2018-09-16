@@ -21,9 +21,14 @@
 		</nav>
 	</head>
 
-	<body class = "blue lighten-5">
+	<body style="background-image: url({{image}});
+			background-attachment: fixed;
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: cover;">
 	</br></br>
-	<div class="container hoverable z-depth-5 grey lighten-5" style="border-radius: 15px;padding: 50px 50px 50px 50px;" >
+	<h1>{{data}}</h1>
+	<div class="container hoverable z-depth-5 grey lighten-5" style="border-radius: 15px;padding: 50px 50px 50px 50px; opacity: 0.95" >
 		<form method="POST"  action="/data">
 			<div class="input-field col s4">
 				<i class="material-icons prefix" style="opacity: 0.7">add_to_queue</i>

@@ -3,13 +3,22 @@
 <head>
 	<title>Box Search</title>
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
-		<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
-		<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
-		<link rel="icon"href = 'static/space.png'>
-		
-	<nav style="height: 90px">
-			<div class="nav-wrapper hoverable blue lighten-1 z-depth-2" style="padding: 10px 0px 10px 10px">
+	<link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+	<link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+	<link rel="icon"href = 'static/space.png'>
+	<style>
+		.myparallax {
+			/* Create the parallax scrolling effect */
+			background-attachment: fixed;
+			background-position: center;
+			background-repeat: no-repeat;
+			background-size: cover;
+		}
+
+	</style>
+	<nav style="height: 90px;opacity: 0.95">
+			<div class="nav-wrapper blue lighten-1 hoverable z-depth-2" style="padding: 10px 0px 10px 10px">
 				<a href="/" class="brand-logo hoverable z-depth-1 blue lighten-2 waves-effect" style="border-radius: 5px;padding: 0px 15px 0px 15px"><strong><font color="#eceff1"></font>BOX SEARCH</strong></a>
 				<ul id="nav-mobile" class="right hide-on-med-and-down">
 					<!-- <li><a href="#">about</a></li>
@@ -18,7 +27,8 @@
 			</div>
 		</nav>
 </head>
-<body class = "blue lighten-5">
+<body class="myparallax" style="background-image: url('{{image_back}}');background-size: 100%;opacity: 0.93">
+	<!-- <h1>{{image_back}}</h1> -->
 </br>
 
 </br>
@@ -110,10 +120,10 @@
 <script>
 	
 	 $(document).ready(function(){
-    $('.tooltipped').tooltip();
+	$('.tooltipped').tooltip();
 
   });
-        
+		
 </script>
 </body>
 </html>

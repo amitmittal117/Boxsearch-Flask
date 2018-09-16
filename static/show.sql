@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.2
+-- version 4.8.3
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1
--- Generation Time: Aug 11, 2018 at 05:46 PM
--- Server version: 10.1.34-MariaDB
--- PHP Version: 7.2.7
+-- Generation Time: Sep 16, 2018 at 03:59 PM
+-- Server version: 10.1.35-MariaDB
+-- PHP Version: 7.2.9
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -2594,48 +2594,26 @@ INSERT INTO `d` (`link`, `size`) VALUES
 
 CREATE TABLE `description` (
   `season_name` varchar(100) NOT NULL,
-  `description` varchar(2000) NOT NULL,
-  `image_link` varchar(500) NOT NULL
+  `description` varchar(300) NOT NULL,
+  `image_link` varchar(100) NOT NULL,
+  `rating` int(20) NOT NULL,
+  `background img` varchar(100) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `description`
 --
 
-INSERT INTO `description` (`season_name`, `description`, `image_link`) VALUES
-('Arrow', 'Oliver Queen and his father are lost at sea when their luxury yacht sinks. His father doesn,t survive. Oliver survives on an uncharted island for five years learning to fight, but also learning about his father,s corruption and unscrupulous business dealings. He returns to civilization a changed man, determined to put things right. He disguises himself with the hood of one of his mysterious island mentors, arms himself with a bow and sets about hunting down the men and women who have corrupted his city.', 'https://www.thetvdb.com/banners/fanart/original/257655-63.jpg'),
-('Barry', 'After following his intended target to an acting class, a hitman finds himself intrigued and decides to become an actor and change his life.', 'https://www.thetvdb.com/banners/fanart/original/333072-3.jpg'),
-('Game%20Of%20thrones', 'Seven noble families fight for control of the mythical land of Westeros. Friction between the houses leads to full-scale war. All while a very ancient evil awakens in the farthest north. Amidst the war, a neglected military order of misfits, the Night,s Watch, is all that stands between the realms of men and the icy horrors beyond.', 'https://www.thetvdb.com/banners/fanart/original/121361-104.jpg'),
-('Suits', 'Suits follows college drop-out Mike Ross, who accidentally lands a job with one of New York,s best legal closers, Harvey Specter. They soon become a winning team with Mike,s raw talent and photographic memory, and Mike soon reminds Harvey of why he went into the field of law in the first place.', 'https://www.thetvdb.com/banners/fanart/original/5b6b0a69bb945.jpg'),
-('gunpowder', 'England, 1603: Elizabeth I is dead, and King James of Scotland has taken the throne. With the country at war with Catholic Spain, English Catholics are persecuted, and priests caught saying Mass are put to death. Several failed attempts have already been made on the new king’s life. Now, deep in the heart of the Warwickshire countryside, a new plot is brewing—one that will become legend, leaving a mark on the country that will still be felt over 400 years later.', 'https://www.thetvdb.com/banners/fanart/original/334069-3.jpg'),
-('Breaking%20Bad', 'Walter White, a struggling high school chemistry teacher, is diagnosed with advanced lung cancer. He turns to a life of crime, producing and selling methamphetamine accompanied by a former student, Jesse Pinkman, with the aim of securing his family,s financial future before he dies.', 'https://www.thetvdb.com/banners/fanart/original/81189-21.jpg'),
-('Beyond', 'A young man wakes up from a coma after 12 years and discovers new supernatural abilities that propel him into the middle of a dangerous conspiracy.', 'https://www.thetvdb.com/banners/fanart/original/318106-1.jpg'),
-('The%20Brink', 'An epic dark comedy focusing on a geopolitical crisis and its effect on three disparate and desperate men: U.S. Secretary of State Walter Larson; Alex Talbot, a lowly Foreign Service officer; and Zeke Tilson, an ace Navy fighter pilot. These three compromised souls must pull through the chaos around them to save the planet from World War III.', 'https://www.thetvdb.com/banners/fanart/original/278469-1.jpg'),
-('The%20Deuce', 'This drama series follows the legalization and subsequent rise of the porn industry in New York from the early 1970s through the mid-1980s, exploring the rough-and-tumble world of midtown Manhattan. James Franco stars as real-life twin brothers who were players in the Times Square world and became fronts for mob control of the volatile and lucrative sex industry from its beginnings.', 'https://www.thetvdb.com/banners/fanart/original/317728-2.jpg'),
-('Californication', 'David Duchovny returns to TV with his Golden Globe-winning portrayal of author Hank Moody in the critically-acclaimed Showtime hit Californication. Author Hank Moody,s life is spinning gloriously out of control as he juggles his sex and drug addictions while raising a daughter and trying to win back the love of his life in this edgy new series. ', 'https://www.thetvdb.com/banners/fanart/original/80349-14.jpg'),
-('Deception', 'When wealthy socialite and notorious party girl Vivian Bowers is found dead of an overdose, no one is really surprised — the heiress to the Bowers pharmaceutical empire has been tabloid fodder for years.  But for FBI agent Will Moreno, things don,t add up with this suspicious dynasty.  Convinced that the troubled girl,s death was a homicide, he has a clever plan to get to the truth.  Her name is Detective Joanna Locasto.  Twenty years ago she was Vivian,s best friend and practically grew up inside the Bowers, home.  And when she appears at Vivian,s funeral, the family re-embraces her and no one is the wiser.  Joanna quickly begins to uncover dark secrets and clues about why Vivian,s life was very much in danger.  At the same time, she rekindles an old romantic relationship and rediscovers the allure of the luxurious lifestyle she once knew.', 'https://www.thetvdb.com/banners/fanart/original/259087-1.jpg'),
-('Divorce', 'The series is about three men aged between 35 and 45 who are in the middle of a divorce. They decide to temporarily live together. They share joys and sorrows, and a deeply rooted friendship grows.\r\n\r\nThe story revolves around everything that a divorce entails: the strong emotions, the quarrels, the mourning, the doubts, the children, finances, rediscovering yourself, starting again, dealing with your ex and dating on your fortieth.\r\n\r\nBut the series is also about a typical male friendship. Men who need but a few words to understand each other, who give each other space to be sad and who back each other up when they are vulnerable. But also men who are not afraid to tell each other the brutal truth.', 'https://www.thetvdb.com/banners/fanart/original/264817-4.jpg'),
-('Fear%20The%20Walking%20Dead', 'In Los Angeles, a city where people come to escape, shield secrets, and bury their pasts, we follow this mysterious outbreak as it threatens to disrupt what little stability high school guidance counselor Madison Clark and English teacher Travis Manawa have managed to assemble. \r\n\r\nThe pressure of blending two families while dealing with resentful, escapist, and strung out children takes a back seat when society begins to break down. A forced evolution, and survival of the fittest takes hold, as our dysfunctional family finds they must either reinvent themselves or embrace their darker histories.', 'https://www.thetvdb.com/banners/fanart/original/290853-25.jpg'),
-('Friends', 'Rachel Green, Ross Geller, Monica Geller, Joey Tribbiani, Chandler Bing and Phoebe Buffay are all friends, living off of one another in the heart of New York City. Over the course of ten years, this average group of buddies goes through massive mayhem, family trouble, past and future romances, fights, laughs, tears and surprises as they learn what it really means to be a friend.', 'https://www.thetvdb.com/banners/fanart/original/79168-6.jpg'),
-('How%20I%20Met%20Your%20Mother', 'The year is 2030. Ted Mosby is relaying the story of how he met his wife to his daughter and son. The story starts in the year 2005, when then twenty-seven year old architect Ted was spurred on to want to get married after his best friends from his college days at Wesleyan, lawyer Marshall Eriksen, who was his roommate at the time and kindergarten teacher Lily Aldrin, got engaged after nine years of dating each other. Ted,s new quest in life was much to the dismay of his womanizing friend, Barney Stinson. But soon after Marshall and Lily,s engagement, Ted believed that his life mate was going to be news reporter and aspiring news anchor Robin Scherbatsky, who, despite having had a romantic relationship with her after this time, ended up being who the kids know as their \"Aunt\" Robin. As Ted relays the story to his kids, the constants are that their Uncle Marshall, Aunt Lily, Uncle Barney and Aunt Robin are always in the picture and thus have something to do with how he got together with their mother.', 'https://www.thetvdb.com/banners/fanart/original/75760-59.jpg'),
-('Humans', 'In a parallel present day, where the latest must-have gadget for any busy family is a ,Synth, (a highly realistic humanoid servant that,s transforming the way we live).  In hopes of reducing their workload, a suburban family purchases a new Synth only to discover that sharing life with a Synth has quite far-reaching consequences.', 'https://www.thetvdb.com/banners/fanart/original/292124-6.jpg'),
-('Into%20the%20Badlands', 'A mighty warrior and a young boy search for enlightenment in a ruthless territory controlled by feudal barons.', 'https://www.thetvdb.com/banners/fanart/original/289079-5.jpg'),
-('Krypton', 'Set two generations before the destruction of Superman,s home planet, Krypton follows Seg-El, the legendary Man of Steel,s grandfather – whose House of El was ostracized and shamed. With Krypton,s leadership in disarray, Seg-El encounters Earthly time-traveler Adam Strange who warns he,s under the clock to save his beloved world from chaos. Fighting to redeem his family,s honor and protect the ones he loves, Seg is also faced with a life and death conflict – save his home planet or let it be destroyed in order to restore the fate of his future grandson.', 'https://www.thetvdb.com/banners/fanart/original/328599-6.jpg'),
-('Last%20Week%20Tonight%20with%20John%20Oliver', 'Last Week Tonight with John Oliver is an American late-night talk and news satire television program.  \r\nL.W.T draws its comedy and satire from recent news stories, political figures, media organizations, pop culture and often aspects of the show itself.', 'https://www.thetvdb.com/banners/fanart/original/278518-5.jpg'),
-('Lost', 'After their plane, Oceanic Air flight 815, tore apart whilst thousands of miles off course, the survivors find themselves on a mysterious deserted island where they soon find out they are not alone.', 'https://www.thetvdb.com/banners/fanart/original/73739-34.jpg'),
-('Love', 'A program that follows a couple who must navigate the exhilarations and humiliations of intimacy, commitment and other things they were hoping to avoid.', 'https://www.thetvdb.com/banners/fanart/original/305378-7.jpg'),
-('McMafia', 'Alex Godman, the English-raised son of Russian mafia exiles, has spent his life trying to escape the shadow of their past, building his own legitimate business and forging a life with his girlfriend Rebecca. But when a murder forces his family,s past to return to threaten them, Alex is drawn into the criminal underworld and must confront his values to protect those he loves.', 'https://www.thetvdb.com/banners/fanart/original/334075-7.jpg'),
-('Marvels%20Agents%20of%20S%20H%20I%20E%20L%20D', 'The missions of the Strategic Homeland Intervention, Enforcement and Logistics Division.', 'https://www.thetvdb.com/banners/fanart/original/263365-39.jpg'),
-('Prison%20Break', 'Due to a political conspiracy, an innocent man is sent to death row and his only hope is his brother, who makes it his mission to deliberately get himself sent to the same prison in order to break the both of them out, from the inside.', 'https://www.thetvdb.com/banners/fanart/original/75340-52.jpg'),
-('Quarry', 'Based loosely on a series of books by Max Allen Collins, the project centers on a Marine marksman who, upon returning home from Vietnam in 1973, finds himself shunned by those he loves and demonized by the public. The disillusioned vet is quickly recruited into a network of contract killers and corruption spanning the Mississippi River.', 'https://www.thetvdb.com/banners/fanart/original/269110-5.jpg'),
-('Sense8', 'A group of people around the world are suddenly linked mentally, and must find a way to survive being hunted by those who see them as a threat to the world,s order.', 'https://www.thetvdb.com/banners/fanart/original/5b1a701399804.jpg'),
-('Big%20Mouth', 'Teenage friends find their lives upended by the wonders and horrors of puberty in this edgy comedy from real-life pals Nick Kroll and Andrew Goldberg.', 'https://www.thetvdb.com/banners/fanart/original/331431-1.jpg'),
-('Dirty%20Money', 'Dirty Money is a crime series about the Irish Criminal Assets Bureau presented by leading crime journalist Paul Williams.\r\n\r\nDon,t miss this chilling six-part series that delves into the Irish criminal underworld and investigates how much money has been collected by the CAB and what they have done with those millions.', 'static/blue.jpg'),
-('B%20The%20Beginning', 'Sorry!! for the Inconvinence. We Dont have enough words to Describe this series.', 'static/blue.jpg'),
-('Shadowhunters', 'Clary Fray learns that she is a Shadowhunter, a human-angel hybrid that hunts demons. After her mother is abducted by a demon, Clary joins a band of Shadowhunters to save her mother and discovers powers she never knew she had.', 'https://www.thetvdb.com/banners/fanart/original/295837-23.jpg'),
-('Iron%20Fist', 'Sorry!! for the Inconvinence. We Dont have enough words to Describe this series.', 'static/blue.jpg'),
-('Imposters', 'Maddie, a persona shifting con-artist who is as beautiful as she is dangerous, leaves her unwitting victims tormented when they realize they have been used and robbed of everything – including their hearts. But things get complicated when her former targets, Ezra, Richard, and Jules team up to track her down. While pursuing her newest mark, Maddie meets a potential love interest, Patrick, which threatens to derail her assignment, much to the chagrin of her mysterious boss, The Doctor.', 'https://www.thetvdb.com/banners/fanart/original/320520-1.jpg'),
-('gotham', 'The story behind Detective James Gordon,s rise to prominence in Gotham City in the years before Batman,s arrival.', 'https://www.thetvdb.com/banners/fanart/original/274431-31.jpg');
+INSERT INTO `description` (`season_name`, `description`, `image_link`, `rating`, `background img`) VALUES
+('Suits', 'Suits follows college drop-out Mike Ross, who accidentally lands a job with one of New York,s best legal closers, Harvey Specter. They soon become a winning team with Mike,s raw talent and photographic memory, and Mike soon reminds Harvey of why he went into the field of law in the first place.', 'https://www.thetvdb.com/banners/graphical/5b6b0c41b9831.jpg', 9, 'https://www.thetvdb.com/banners/fanart/original/5b6b0a69bb945.jpg'),
+('Game%20Of%20thrones', 'Seven noble families fight for control of the mythical land of Westeros. Friction between the houses leads to full-scale war. All while a very ancient evil awakens in the farthest north. Amidst the war, a neglected military order of misfits, the Night,s Watch, is all that stands between the realms o', 'https://www.thetvdb.com/banners/graphical/121361-g19.jpg', 10, 'https://www.thetvdb.com/banners/fanart/original/121361-104.jpg'),
+('Californication', 'David Duchovny returns to TV with his Golden Globe-winning portrayal of author Hank Moody in the critically-acclaimed Showtime hit Californication. Author Hank Moody,s life is spinning gloriously out of control as he juggles his sex and drug addictions while raising a daughter and trying to win back', 'https://www.thetvdb.com/banners/graphical/80349-g6.jpg', 8, 'https://www.thetvdb.com/banners/fanart/original/80349-14.jpg'),
+('Barry', 'After following his intended target to an acting class, a hitman finds himself intrigued and decides to become an actor and change his life.', 'https://www.thetvdb.com/banners/graphical/333072-g2.jpg', 8, 'https://www.thetvdb.com/banners/fanart/original/333072-3.jpg'),
+('Arrow', 'Oliver Queen and his father are lost at sea when their luxury yacht sinks. His father doesn,t survive. Oliver survives on an uncharted island for five years learning to fight, but also learning about his father,s corruption and unscrupulous business dealings. He returns to civilization a changed man', 'https://www.thetvdb.com/banners/graphical/257655-g15.jpg', 8, 'https://www.thetvdb.com/banners/fanart/original/5b9be0d66c70d.jpg'),
+('Patrick%20Melrose', 'Sorry!! for the Inconvinence. We Dont have enough words to Describe this series.', 'static/blue.jpg', 0, 'static/back_img.jpg'),
+('Quarry', 'Based loosely on a series of books by Max Allen Collins, the project centers on a Marine marksman who, upon returning home from Vietnam in 1973, finds himself shunned by those he loves and demonized by the public. The disillusioned vet is quickly recruited into a network of contract killers and corr', 'https://www.thetvdb.com/banners/graphical/269110-g3.jpg', 8, 'https://www.thetvdb.com/banners/fanart/original/269110-5.jpg'),
+('Endeavour', 'Set in the mid-sixties, this prequel centres around the early career of Endeavour Morse (Shaun Evans).  After leaving his Oxford college without a degree, and spending a short time as a cipher clerk, Morse joins the police working under veteran DI Fred Thursday (Roger Allam).  This show was preceded', 'https://www.thetvdb.com/banners/graphical/254834-g3.jpg', 9, 'https://www.thetvdb.com/banners/fanart/original/254834-16.jpg'),
+('How%20i%20met%20your%20mother', 'The year is 2030. Ted Mosby is relaying the story of how he met his wife to his daughter and son. The story starts in the year 2005, when then twenty-seven year old architect Ted was spurred on to want to get married after his best friends from his college days at Wesleyan, lawyer Marshall Eriksen, ', 'https://www.thetvdb.com/banners/graphical/75760-g2.jpg', 8, 'https://www.thetvdb.com/banners/fanart/original/75760-59.jpg');
 
 -- --------------------------------------------------------
 
@@ -3488,72 +3466,7 @@ INSERT INTO `g` (`link`, `size`) VALUES
 ('http://dl4.lavinmovie.net/series/Gunpowder/S01/720p%20x265/Gunpowder.S01E01.720p.BluRay.x265.HET.LavinMovie.mkv', '310'),
 ('http://dl4.lavinmovie.net/series/Gunpowder/S01/720p%20x265/Gunpowder.S01E02.720p.BluRay.x265.HET.LavinMovie.mkv', '310'),
 ('http://dl4.lavinmovie.net/series/Gunpowder/S01/720p%20x265/Gunpowder.S01E03.720p.BluRay.x265.HET.LavinMovie.mkv', '311'),
-('http://dl4.lavinmovie.net/series/Gunpowder/Gunpowder.S01.zip', '0'),
-('http://dl.upload8.net/Serial/Gotham/S01/Gotham.S01E01.480p.mkv', '161'),
-('http://dl.upload8.net/Serial/Gotham/S01/Gotham.S01E02.480p.mkv', '179'),
-('http://dl.upload8.net/Serial/Gotham/S01/Gotham.S01E03.480p.mkv', '151'),
-('http://dl.upload8.net/Serial/Gotham/S01/Gotham.S01E04.480p.mkv', '165'),
-('http://dl.upload8.net/Serial/Gotham/S01/Gotham.S01E05.480p.mkv', '178'),
-('http://dl.upload8.net/Serial/Gotham/S01/Gotham.S01E06.480p.mkv', '155'),
-('http://dl.upload8.net/Serial/Gotham/S01/Gotham.S01E07.480p.mkv', '160'),
-('http://dl.upload8.net/Serial/Gotham/S01/Gotham.S01E08.480p.mkv', '168'),
-('http://dl.upload8.net/Serial/Gotham/S01/Gotham.S01E09.480p.mkv', '169'),
-('http://dl.upload8.net/Serial/Gotham/S01/Gotham.S01E10.480p.mkv', '164'),
-('http://dl.upload8.net/Serial/Gotham/S01/Gotham.S01E11.480p.mkv', '154'),
-('http://dl.upload8.net/Serial/Gotham/S01/Gotham.S01E12.480p.mkv', '157'),
-('http://dl.upload8.net/Serial/Gotham/S01/Gotham.S01E13.480p.mkv', '161'),
-('http://dl.upload8.net/Serial/Gotham/S01/Gotham.S01E14.480p.mkv', '159'),
-('http://dl.upload8.net/Serial/Gotham/S01/Gotham.S01E15.480p.mkv', '166'),
-('http://dl.upload8.net/Serial/Gotham/S01/Gotham.S01E16.480p.mkv', '157'),
-('http://dl.upload8.net/Serial/Gotham/S01/Gotham.S01E17.480p.mkv', '173'),
-('http://dl.upload8.net/Serial/Gotham/S01/Gotham.S01E18.480p.mkv', '146'),
-('http://dl.upload8.net/Serial/Gotham/S01/Gotham.S01E19.480p.mkv', '151'),
-('http://dl.upload8.net/Serial/Gotham/S01/Gotham.S01E20.480p.mkv', '158'),
-('http://dl.upload8.net/Serial/Gotham/S01/Gotham.S01E21.480p.mkv', '151'),
-('http://dl.upload8.net/Serial/Gotham/S01/Gotham.S01E22.480p.mkv', '164'),
-('http://dl.upload8.net/Serial/Gotham/S02/Gotham.S02E01.480p.mkv', '154'),
-('http://dl.upload8.net/Serial/Gotham/S02/Gotham.S02E01.480p.mp4', '271'),
-('http://dl.upload8.net/Serial/Gotham/S02/Gotham.S02E01.720p.x265.mkv', '179'),
-('http://dl.upload8.net/Serial/Gotham/S02/Gotham.S02E02.480p.mkv', '154'),
-('http://dl.upload8.net/Serial/Gotham/S02/Gotham.S02E02.720p.x265.mkv', '181'),
-('http://dl.upload8.net/Serial/Gotham/S02/Gotham.S02E03.480p.mkv', '195'),
-('http://dl.upload8.net/Serial/Gotham/S02/Gotham.S02E03.720p.x265.mkv', '192'),
-('http://dl.upload8.net/Serial/Gotham/S02/Gotham.S02E04.480p.mkv', '173'),
-('http://dl.upload8.net/Serial/Gotham/S02/Gotham.S02E04.720p.x265.mkv', '164'),
-('http://dl.upload8.net/Serial/Gotham/S02/Gotham.S02E05.480p.mkv', '167'),
-('http://dl.upload8.net/Serial/Gotham/S02/Gotham.S02E05.720p.x265.mkv', '144'),
-('http://dl.upload8.net/Serial/Gotham/S02/Gotham.S02E06.480p.mkv', '153'),
-('http://dl.upload8.net/Serial/Gotham/S02/Gotham.S02E06.720p.x265.mkv', '184'),
-('http://dl.upload8.net/Serial/Gotham/S02/Gotham.S02E07.480p.mkv', '154'),
-('http://dl.upload8.net/Serial/Gotham/S02/Gotham.S02E07.720p.x265.mkv', '163'),
-('http://dl.upload8.net/Serial/Gotham/S02/Gotham.S02E08.480p.mkv', '151'),
-('http://dl.upload8.net/Serial/Gotham/S02/Gotham.S02E08.720p.x265.mkv', '197'),
-('http://dl.upload8.net/Serial/Gotham/S02/Gotham.S02E09.480p.mkv', '154'),
-('http://dl.upload8.net/Serial/Gotham/S02/Gotham.S02E09.720p.x265.mkv', '175'),
-('http://dl.upload8.net/Serial/Gotham/S02/Gotham.S02E10.480p.mkv', '164'),
-('http://dl.upload8.net/Serial/Gotham/S02/Gotham.S02E10.720p.x265.mkv', '182'),
-('http://dl.upload8.net/Serial/Gotham/S02/Gotham.S02E11.480p.mkv', '151'),
-('http://dl.upload8.net/Serial/Gotham/S02/Gotham.S02E11.720p.x265.mkv', '186'),
-('http://dl.upload8.net/Serial/Gotham/S02/Gotham.S02E12.480p.mkv', '170'),
-('http://dl.upload8.net/Serial/Gotham/S02/Gotham.S02E12.720p.x265.mkv', '213'),
-('http://dl.upload8.net/Serial/Gotham/S02/Gotham.S02E13.Repack.480p.mkv', '188'),
-('http://dl.upload8.net/Serial/Gotham/S02/Gotham.S02E13.Repack.720p.x265.mkv', '227'),
-('http://dl.upload8.net/Serial/Gotham/S02/Gotham.S02E14.480p.mkv', '168'),
-('http://dl.upload8.net/Serial/Gotham/S02/Gotham.S02E14.720p.x265.mkv', '203'),
-('http://dl.upload8.net/Serial/Gotham/S02/gotham.s02e15.480p.mkv', '174'),
-('http://dl.upload8.net/Serial/Gotham/S02/gotham.s02e15.720p.x265.mkv', '242'),
-('http://dl.upload8.net/Serial/Gotham/S02/gotham.s02e16.480p.mkv', '175'),
-('http://dl.upload8.net/Serial/Gotham/S02/gotham.s02e16.720p.x265.mkv', '233'),
-('http://dl.upload8.net/Serial/Gotham/S02/gotham.s02e17.repack.480p.mkv', '175'),
-('http://dl.upload8.net/Serial/Gotham/S02/gotham.s02e17.repack.720p.x265.mkv', '235'),
-('http://dl.upload8.net/Serial/Gotham/S02/gotham.s02e18.480p.mkv', '146'),
-('http://dl.upload8.net/Serial/Gotham/S02/gotham.s02e18.720p.x265.mkv', '203'),
-('http://dl.upload8.net/Serial/Gotham/S02/gotham.s02e19.480p.mkv', '184'),
-('http://dl.upload8.net/Serial/Gotham/S02/gotham.s02e19.720p.x265.mkv', '251'),
-('http://dl.upload8.net/Serial/Gotham/S02/gotham.s02e20.480p.mkv', '169'),
-('http://dl.upload8.net/Serial/Gotham/S02/gotham.s02e20.720p.x265.mkv', '230'),
-('http://dl.upload8.net/Serial/Gotham/S02/gotham.s02e21.480p.mkv', '132'),
-('http://dl.upload8.net/Serial/Gotham/S02/gotham.s02e21.720p.x265.mkv', '215');
+('http://dl4.lavinmovie.net/series/Gunpowder/Gunpowder.S01.zip', '0');
 
 -- --------------------------------------------------------
 
@@ -9984,42 +9897,16 @@ CREATE TABLE `season_name` (
 --
 
 INSERT INTO `season_name` (`season_name`) VALUES
-('Arrow'),
-('Suits'),
-('Barry'),
 ('Game Of thrones'),
-('gunpowder'),
-('Breaking Bad'),
-('Patrick Melrose'),
-('Beyond'),
-('The Brink'),
-('The Deuce'),
+('Suits'),
 ('Californication'),
-('Deception'),
-('Dirty Money'),
-('Divorce'),
-('Fear The Walking Dead'),
-('Friends'),
-('How I Met Your Mother'),
-('Humans'),
-('Into the Badlands'),
-('Iron fist'),
-('Krypton'),
-('Last Week Tonight with John Oliver'),
-('Killing Eve'),
-('Lost'),
-('Love'),
-('McMafia'),
-('Marvels Agents of S H I E L D'),
-('One Strange Rock'),
-('Prison Break'),
+('Barry'),
+('Breaking Bad'),
+('Arrow'),
+('Patrick Melrose'),
 ('Quarry'),
-('Sense8'),
-('Big Mouth'),
-('B The Beginning'),
-('Shadowhunters'),
-('Imposters'),
-('gotham');
+('Endeavour'),
+('How i met your mother');
 
 -- --------------------------------------------------------
 
