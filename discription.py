@@ -50,7 +50,10 @@ def image_request(name):
 		for img in data:
 			li.append(img.get('src'))
 		# ','.join(li)
-		return (','.join(li[:10]))
+		if len(li) >= 10:
+			return (','.join(li[:10]))
+		else:
+			return (','.join(li))
 	else:
 		return('static/blue.jpg')
 
@@ -104,7 +107,10 @@ def image_request_back_banner(name):
 			li = []
 			for img in data:
 				li.append(img.get('src'))
-		return (','.join(li[0:10]))
+		if len(li) >= 10:
+			return (','.join(li[0:10]))
+		else:
+			return (','.join(li))
 	else:
 		return('static/back_img.jpg')
 

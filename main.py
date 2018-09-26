@@ -42,8 +42,6 @@ def data():
 			episode_number = episode_number[1:]
 		if len(episode_number) == 1:
 			episode_number = "0"+episode_number
-		# sql = "SELECT link FROM demo_mark_3 WHERE season_name = '"+season_name+"' AND season_number = '"+ season_number +"' AND episode_number = '"+ episode_number +"'"
-		# sql = "SELECT link FROM demo_mark_3 WHERE link LIKE '%"+season_name+"%' AND link LIKE '%"+season_number+"%' AND link LIKE '%"+episode_number+"%'"
 		sql = "SELECT link,size FROM `"+first_letter+"` WHERE link LIKE '%"+season_name+"%'"
 		mycursor.execute(sql)
 		a = mycursor.fetchall()
@@ -80,18 +78,17 @@ def data():
 						mydb.commit()
 					else:
 						discp = d[0][0]
-						# print(d)
 						img_src= d[0][1]
 						rating_of_show = d[0][2]
 						image_back = d[0][3]
 						discp = str(discp).replace("\n","").replace("(' ","").replace("',)","")
 
 		if len(temp) != 0:
-			print("good")
 			li = img_src.split(',')
-			img_src = li[random.randint(0,9)]
+			img_src = li[random.randint(0,(len(li)-1))]
 			nli = image_back.split(',')
-			image_back = nli[random.randint(0,9)]
+			image_back = nli[random.randint(0,(len(li)-1))]
+
 			return render_template('data.html',rating_of_show = rating_of_show ,image_back = image_back, link = temp, discp = discp, img_src = img_src, season_name=season_name,season_number=season_number,episode_number=episode_number)
 		else:
 			season_name = season_name.replace('%20','_')
@@ -102,9 +99,6 @@ def data():
 			mycursor.execute(sql)
 			a = mycursor.fetchall()
 			print(a)
-
-
-
 
 	return render_template('index.html')
 
@@ -136,4 +130,4 @@ def searched():
 
 
 if __name__ == "__main__":
-	app.run(host= '0.0.0.0',debug=True)
+	app.run(host='0.0.0.0',debug=True)
