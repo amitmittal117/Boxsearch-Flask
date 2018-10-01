@@ -20,7 +20,15 @@ def index ():
 		for each_pic in pic[0].split(','):
 			front_image.append(each_pic)
 	image = front_image[random.randint(0,len(front_image))]
-	return render_template('index.html',image = image)
+
+	sql = "SELECT `season_name` FROM `description`"
+	mycursor.execute(sql)
+	auto= mycursor.fetchall()
+	auto_complete = []
+	for sn in auto:
+		auto_complete.append(sn[0])
+	print(auto_complete)
+	return render_template('index.html',image = image, auto_complete = auto_complete)
 
 @app.route('/data', methods = ['POST','GET'])
 def data():

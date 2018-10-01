@@ -27,13 +27,12 @@
 			background-repeat: no-repeat;
 			background-size: cover;">
 	</br></br>
-	<h1>{{data}}</h1>
+	<h1 hidden id='auto_data'>{{auto_complete}}</h1>
 	<div class="container hoverable z-depth-5 grey lighten-5" style="border-radius: 15px;padding: 50px 50px 50px 50px; opacity: 0.93" >
 		<form method="POST"  action="/data">
 			<div class="input-field col s4">
 				<i class="material-icons prefix" style="opacity: 0.7">add_to_queue</i>
-				<input type="text" id="autocomplete-input" class="autocomplete"
-				  placeholder="Season Name" required="true"  name="season_name">
+				<input type="text" id="auto_complete" placeholder="Season Name" required="true"  name="season_name">
 			</div>
 			<div class="input-field col s4">
 				<i class="material-icons prefix" style="opacity: 0.7">note_add</i>
@@ -119,36 +118,35 @@
 		</div>
 	</div>
 	<script type="text/javascript" src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
-	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.98.2/js/materialize.min.js"></script>
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-beta/js/materialize.min.js"></script>
 	<script>
-		$(document).ready(function(){
-			$.ajax({
-				url: '/',
-				type: 'get',
-				success: function(data){
-				  $('input.autocomplete').autocomplete({
-					data: data
-				  });
-					console.log(data);
-				},
-				error: function (xhr, ajaxOptions, thrownError) {
-					var errorMsg = 'Ajax request failed: ' + xhr.responseText;
-					$('#content').html(errorMsg);
-				  }
-			});
-			
-			$('input.autocomplete').autocomplete({
-				data:{
-					"Apple": '',
-					"Microsoft": null,
-					"Microsoft": null,
-					"Google": 'https://placehold.it/250x250'
-				},
+		$(function() {
+			var one = myauto();
+			data1 = $.extend({"abc":'static/white.jpg'},);
+			$.each(one, function(i, val){
+				data1[val] = 'static/white.jpg';
 			});
 
-			$('.modal').modal();
+			$('input#auto_complete').autocomplete({
+				// data = data;
+				data:data1
+				// data: {
+				// 	"Suits": null,
+				// 	"Microsoft": null,
+				// 	"Google": null,
+				// }
+			});
 		});
-			
+		
+		function myauto(){
+			var ato = document.getElementById('auto_data');
+			var res = ato.textContent.split(",");
+			for (var i = 0; i<res.length;i++){
+				res[i] = res[i].replace("[","").replace("'","").replace("]","").replace("'","").replace(" ","");
+			}
+			return res;
+		}
+
 		function myFunction() {
 			document.getElementById("demo").innerHTML = '<div class="progress"><div class="indeterminate"></div></div>';
 		}
